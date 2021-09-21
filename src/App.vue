@@ -1,6 +1,10 @@
 <template>
-  <h2>This is a main page</h2>
-  <HelloWorld />
+  <div id="nav">
+    <router-link to="/">Home</router-link> | 
+    <router-link to="/managersPage">Manager's Page</router-link> | 
+    <router-link to="/staffPage">Staff Page</router-link> | 
+  </div>
+  <router-view/>
 </template>
 
 <style>
@@ -23,5 +27,8 @@
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+#nav {
+  margin-left: 100px;;
 }
 </style>
