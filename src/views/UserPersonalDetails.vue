@@ -6,26 +6,26 @@
           <h1>This is an personaldetails page</h1>
             <form id="pd-form" class="w-50" >
               <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <label class="form-label">Email address</label>
+                <input type="email" v-model="email" class="form-control">
                 <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
               </div>
               <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
+                <label class="form-label">Password</label>
+                <input type="password" class="form-control" v-model="password">
               </div>
 
               <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
+                <label class="form-label">firstname</label>
+                <input type="firstname" class="form-control" v-model="firtnam">
               </div>
               <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
+                <label class="form-label">familyname</label>
+                <input type="familyname" class="form-control" v-model="familyname">
               </div>
               <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
+                <label class="form-label">DOB</label>
+                <input type="DOB" class="form-control" v-model="DOB">
               </div>
 
 
@@ -34,7 +34,8 @@
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
                 <label class="form-check-label" for="exampleCheck1">Check me out</label>
               </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button  @click="submit" type="submit" class="btn btn-primary">Submit</button>
+           
             </form>
         </div>
       </div>
@@ -51,3 +52,24 @@
   }
 
 </style>
+
+<script>
+export default {
+  data() {
+    return {
+      form: {
+        email: '',
+        password: '',
+        firstname: '',
+        familyname: false,
+        DOB: ''
+      }
+    }
+  },
+  methods: {
+    async submit() {
+      this.$emit('submit', this.form)
+    }
+  }
+}
+</script>
