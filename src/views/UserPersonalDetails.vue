@@ -27,8 +27,22 @@
                 <label class="form-label">DOB</label>
                 <input type="DOB" class="form-control" v-model="DOB">
               </div>
-
-
+              <div class="mb-3">
+                <label class="form-label">phone-number</label>
+                <input type="phone number" class="form-control" v-model="number">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">gender</label>
+                <input type="gender" class="form-control" v-model="gender">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">position</label>
+                <input type="position" class="form-control" v-model="position">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">employemnt</label>
+                <input type="employemnt" class="form-control" v-model="employemnt">
+              </div>
 
               <div class="mb-3 form-check">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
