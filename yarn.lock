@@ -1288,7 +1288,11 @@
     "webpack" "^4.0.0"
     "yorkie" "^2.0.0"
 
+<<<<<<< HEAD
 "@vue/cli-plugin-router@^4.5.13", "@vue/cli-plugin-router@~4.5.0":
+=======
+"@vue/cli-plugin-router@^4.5.13":
+>>>>>>> parent of 7b40eea... routes and staff profile idea
   "integrity" "sha512-tgtMDjchB/M1z8BcfV4jSOY9fZSMDTPgF9lsJIiqBWMxvBIsk9uIZHxp62DibYME4CCKb/nNK61XHaikFp+83w=="
   "resolved" "https://registry.npmjs.org/@vue/cli-plugin-router/-/cli-plugin-router-4.5.13.tgz"
   "version" "4.5.13"
@@ -1447,11 +1451,14 @@
     "vue-template-es2015-compiler" "^1.9.0"
   optionalDependencies:
     "prettier" "^1.18.2"
+<<<<<<< HEAD
 
 "@vue/devtools-api@^6.0.0-beta.14":
   "integrity" "sha512-56vRhO7nXWWFYTx520BQSDlQH5VYpwy62hFDEqi2yHHEBpEqseOP5WYQusq7BEW3DXSY9E9cfPVR5CFtJbKuMg=="
   "resolved" "https://registry.npmjs.org/@vue/devtools-api/-/devtools-api-6.0.0-beta.18.tgz"
   "version" "6.0.0-beta.18"
+=======
+>>>>>>> parent of 7b40eea... routes and staff profile idea
 
 "@vue/preload-webpack-plugin@^1.1.0":
   "integrity" "sha512-LIZMuJk38pk9U9Ur4YzHjlIyMuxPlACdBIHH9/nGYVTsaGKOSnSuELiE8vS9wa+dJpIYspYUOqk+L1Q4pgHQHQ=="
@@ -1937,6 +1944,7 @@
   "resolved" "https://registry.npmjs.org/aws4/-/aws4-1.11.0.tgz"
   "version" "1.11.0"
 
+<<<<<<< HEAD
 "axios@^0.21.4":
   "integrity" "sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg=="
   "resolved" "https://registry.npmjs.org/axios/-/axios-0.21.4.tgz"
@@ -1944,6 +1952,8 @@
   dependencies:
     "follow-redirects" "^1.14.0"
 
+=======
+>>>>>>> parent of 7b40eea... routes and staff profile idea
 "babel-eslint@^10.1.0":
   "integrity" "sha512-ifWaTHQ0ce+448CYop8AdrQiBsGrnC+bMgfyKFdi6EsPLTAWG+QfyDeM6OH+FmWnKvEq5NnBMLvlBUPKQZoDSg=="
   "resolved" "https://registry.npmjs.org/babel-eslint/-/babel-eslint-10.1.0.tgz"
@@ -4089,7 +4099,11 @@
     "inherits" "^2.0.3"
     "readable-stream" "^2.3.6"
 
+<<<<<<< HEAD
 "follow-redirects@^1.0.0", "follow-redirects@^1.14.0":
+=======
+"follow-redirects@^1.0.0":
+>>>>>>> parent of 7b40eea... routes and staff profile idea
   "integrity" "sha512-zwGkiSXC1MUJG/qmeIFH2HBJx9u0V46QGUe3YR1fXG8bXQxq7fLj0RjLZQ5nubr9qNJUZrH+xUcwXEoXNpfS+g=="
   "resolved" "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.14.4.tgz"
   "version" "1.14.4"
@@ -7346,6 +7360,7 @@
   "integrity" "sha1-QKNmnzsHfR6UPURinhV91IAjvy4="
   "resolved" "https://registry.npmjs.org/safe-regex/-/safe-regex-1.1.0.tgz"
   "version" "1.1.0"
+<<<<<<< HEAD
   dependencies:
     "ret" "~0.1.10"
 
@@ -7382,11 +7397,44 @@
   "resolved" "https://registry.npmjs.org/schema-utils/-/schema-utils-2.7.1.tgz"
   "version" "2.7.1"
   dependencies:
+=======
+  dependencies:
+    "ret" "~0.1.10"
+
+"safer-buffer@^2.0.2", "safer-buffer@^2.1.0", "safer-buffer@>= 2.1.2 < 3", "safer-buffer@~2.1.0":
+  "integrity" "sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg=="
+  "resolved" "https://registry.npmjs.org/safer-buffer/-/safer-buffer-2.1.2.tgz"
+  "version" "2.1.2"
+
+"sax@~1.2.4":
+  "integrity" "sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw=="
+  "resolved" "https://registry.npmjs.org/sax/-/sax-1.2.4.tgz"
+  "version" "1.2.4"
+
+"schema-utils@^1.0.0":
+  "integrity" "sha512-i27Mic4KovM/lnGsy8whRCHhc7VicJajAjTrYg11K9zfZXnYIt4k5F+kZkwjnrhKzLic/HLU4j11mjsz2G/75g=="
+  "resolved" "https://registry.npmjs.org/schema-utils/-/schema-utils-1.0.0.tgz"
+  "version" "1.0.0"
+  dependencies:
+    "ajv" "^6.1.0"
+    "ajv-errors" "^1.0.0"
+    "ajv-keywords" "^3.1.0"
+
+"schema-utils@^2.0.0":
+  "integrity" "sha512-SHiNtMOUGWBQJwzISiVYKu82GiV4QYGePp3odlY1tuKO7gPtphAT5R/py0fA6xtbgLL/RvtJZnU9b8s0F1q0Xg=="
+  "resolved" "https://registry.npmjs.org/schema-utils/-/schema-utils-2.7.1.tgz"
+  "version" "2.7.1"
+  dependencies:
+>>>>>>> parent of 7b40eea... routes and staff profile idea
     "@types/json-schema" "^7.0.5"
     "ajv" "^6.12.4"
     "ajv-keywords" "^3.5.2"
 
+<<<<<<< HEAD
 "schema-utils@^2.6.5":
+=======
+"schema-utils@^2.5.0":
+>>>>>>> parent of 7b40eea... routes and staff profile idea
   "integrity" "sha512-SHiNtMOUGWBQJwzISiVYKu82GiV4QYGePp3odlY1tuKO7gPtphAT5R/py0fA6xtbgLL/RvtJZnU9b8s0F1q0Xg=="
   "resolved" "https://registry.npmjs.org/schema-utils/-/schema-utils-2.7.1.tgz"
   "version" "2.7.1"
@@ -7395,6 +7443,21 @@
     "ajv" "^6.12.4"
     "ajv-keywords" "^3.5.2"
 
+<<<<<<< HEAD
+"schema-utils@^2.7.0":
+=======
+"schema-utils@^2.6.5":
+>>>>>>> parent of 7b40eea... routes and staff profile idea
+  "integrity" "sha512-SHiNtMOUGWBQJwzISiVYKu82GiV4QYGePp3odlY1tuKO7gPtphAT5R/py0fA6xtbgLL/RvtJZnU9b8s0F1q0Xg=="
+  "resolved" "https://registry.npmjs.org/schema-utils/-/schema-utils-2.7.1.tgz"
+  "version" "2.7.1"
+  dependencies:
+    "@types/json-schema" "^7.0.5"
+    "ajv" "^6.12.4"
+    "ajv-keywords" "^3.5.2"
+
+<<<<<<< HEAD
+=======
 "schema-utils@^2.7.0":
   "integrity" "sha512-SHiNtMOUGWBQJwzISiVYKu82GiV4QYGePp3odlY1tuKO7gPtphAT5R/py0fA6xtbgLL/RvtJZnU9b8s0F1q0Xg=="
   "resolved" "https://registry.npmjs.org/schema-utils/-/schema-utils-2.7.1.tgz"
@@ -7404,6 +7467,7 @@
     "ajv" "^6.12.4"
     "ajv-keywords" "^3.5.2"
 
+>>>>>>> parent of 7b40eea... routes and staff profile idea
 "select-hose@^2.0.0":
   "integrity" "sha1-Yl2GWPhlr0Psliv8N2o3NZpJlMo="
   "resolved" "https://registry.npmjs.org/select-hose/-/select-hose-2.0.0.tgz"
@@ -8541,6 +8605,7 @@
     "loader-utils" "^1.1.0"
     "vue-hot-reload-api" "^2.3.0"
     "vue-style-loader" "^4.1.0"
+<<<<<<< HEAD
 
 "vue-router@^4.0.0-0":
   "integrity" "sha512-sha6I8fx9HWtvTrFZfxZkiQQBpqSeT+UCwauYjkdOQYRvwsGwimlQQE2ayqUwuuXGzquFpCPoXzYKWlzL4OuXg=="
@@ -8548,6 +8613,8 @@
   "version" "4.0.11"
   dependencies:
     "@vue/devtools-api" "^6.0.0-beta.14"
+=======
+>>>>>>> parent of 7b40eea... routes and staff profile idea
 
 "vue-style-loader@^4.1.0", "vue-style-loader@^4.1.2":
   "integrity" "sha512-sFuh0xfbtpRlKfm39ss/ikqs9AbKCoXZBpHeVZ8Tx650o0k0q/YCM7FRvigtxpACezfq6af+a7JeqVTWvncqDg=="
