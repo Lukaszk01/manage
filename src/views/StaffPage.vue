@@ -3,8 +3,11 @@
     <h1>Date: </h1>
     <p>{{currentDate()}}</p>
   </div>
-<div class="d-flex justify-content-start">
-  <div id="nav" class="w-25">
+    <div class="d-flex justify-content-start">
+      <div id="nav" class="w-25">
+        <div class="avatar">
+      <img src="" alt="">
+    </div>
     <ul class="list-group list-group-flush">
       <li class="list-group-item d-flex justify-content-startd-flex justify-content-between">
         <router-link to="/personalDetail">Personal Details</router-link></li>
@@ -46,5 +49,14 @@ export default {
 #app h1 {
   font-size: 22px;
   margin-right: 5px;
+}
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: solid 1px black;
+  padding: 50px;
+  margin-left: 50px;
+  margin-bottom: 20px;
 }
 </style>
