@@ -4,6 +4,7 @@ import ManagersPage from '../views/ManagersPage.vue'
 import UserPersonalDetails from '../views/UserPersonalDetails.vue'
 import UserShifts from '../views/UserShifts.vue'
 import StaffPage from '../views/StaffPage.vue'
+import Notifications from '../views/Notifications.vue'
 
 const routes = [
     {
@@ -39,7 +40,13 @@ const routes = [
           component: UserShifts
         }
       ]
+  },
+  {
+    path: '/notifications',
+    name: 'Notifications',
+    component: Notifications,
   }
+  
 ]
 
 const router = createRouter({

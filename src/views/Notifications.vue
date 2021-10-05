@@ -1,6 +1,6 @@
 <template>
    <h2 class="text-center mt-3 mb-3">Unread 6</h2>
-<div class="list-group mt-3">
+<div class="list-group mt-3 p-4">
     <a href="#" class="list-group-item list-group-item-action active">
       <div class="d-flex w-100 justify-content-between">
         <h5 class="mb-1">Notification 4</h5>
