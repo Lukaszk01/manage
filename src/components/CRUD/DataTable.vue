@@ -1,87 +1,60 @@
 <template>
-  <div>
-    <b-row>
-      <b-alert v-model="showSuccessAlert" variant="success" dismissible>
+      <input v-model="showSuccessAlert" variant="success" dismissible>
         {{ alertMessage }}
-      </b-alert>
-    </b-row>
-    <b-row>
       <customer-overview
         :totalCustomers="numberOfCustomers"
         :activeCustomers="activeCustomers"
         @totalCustomersIsActive="setFilterTotalIsActive"
         @activeCustomerIsActive="setFilterActiveIsActive"
       ></customer-overview>
-    </b-row>
-    <b-row class="mt-3">
-      <b-card>
-        <b-row align-h="between">
-          <b-col cols="6">
             <h3>{{ tableHeader }}</h3>
-          </b-col>
-          <b-col cols="2">
-            <b-row>
-              <b-col>
-                <b-button
+                <button
                   variant="primary"
                   id="show-btn"
                   @click="showCreateModal"
                 >
-                  <b-icon-plus class="text-white"></b-icon-plus>
+                  <div class="text-white"></div>
                   <span class="h6 text-white">New Customer</span>
-                </b-button>
-              </b-col>
-            </b-row>
-          </b-col>
-        </b-row>
-        <b-row class="mt-3">
-          <b-table
+                </button>
+          <table
             striped
             hover
             :items="items"
             :fields="fields"
             class="text-center"
           >
-            <template #cell(contact_name)="data">
+            <!-- <template #cell(contact_name)="data">
               {{
                 `${data.item.contact_firstname} ${data.item.contact_lastname}`
               }}
             </template>
             <template #cell(customer_status)="data">
-              <b-icon-bookmark-check-fill
+              <b-bookmark-check-fill
                 variant="success"
                 v-if="data.item.customer_status === 'active'"
-              ></b-icon-bookmark-check-fill>
-              <b-icon-bookmark-x-fill
+              ></bookmark-check-fill>
+              <bookmark-x-fill
                 variant="danger"
                 v-else
-              ></b-icon-bookmark-x-fill>
+              ></bookmark-x-fill>
             </template>
-            <template #cell(actions)="data">
-              <b-row>
-                <b-col cols="7">
-                  <b-icon-pencil-square
+            <template #cell(actions)="data"> -->
+      
+                  <pencil-square
                     class="action-item"
                     variant="primary"
                     @click="getRowData(data.item.id)"
-                  ></b-icon-pencil-square>
-                </b-col>
-                <b-col cols="1">
-                  <b-icon-trash-fill
+                  ></pencil-square>
+                  <trash-fill
                     class="action-item"
                     variant="danger"
                     @click="showDeleteModal(data.item.id)"
-                  ></b-icon-trash-fill>
-                </b-col>
-              </b-row>
-            </template>
-          </b-table>
-        </b-row>
-      </b-card>
-    </b-row>
+                  ></trash-fill>
+            <!-- </template> -->
+          </table>
 
     <!-- Modal for adding new customers -->
-    <b-modal
+    <div
       ref="create-customer-modal"
       size="xl"
       hide-footer
@@ -92,10 +65,10 @@
         @reloadDataTable="getCustomerData"
         @showSuccessAlert="showAlertCreate"
       ></create-customer-form>
-    </b-modal>
+    </div>
 
     <!-- Modal for updating customers -->
-    <b-modal
+    <div
       ref="edit-customer-modal"
       size="xl"
       hide-footer
@@ -107,10 +80,10 @@
         @showSuccessAlert="showAlertUpdate"
         :customerId="customerId"
       ></edit-customer-form>
-    </b-modal>
+    </div>
 
     <!-- Delete Customer Modal -->
-    <b-modal
+    <div
       ref="delete-customer-modal"
       size="md"
       hide-footer
@@ -122,10 +95,10 @@
         @showDeleteAlert="showDeleteSuccessModal"
         :customerId="customerId"
       ></delete-customer-modal>
-    </b-modal>
-  </div>
+    </div>
+  >
 
-  <b-modal
+  <div
       ref="create-customer-modal"
       size="xl"
       hide-footer
@@ -136,10 +109,10 @@
         @reloadDataTable="getCustomerData"
         @showSuccessAlert="showAlertCreate"
       ></create-customer-form>
-    </b-modal>
+    </div>
 
     <!-- Modal for updating customers -->
-    <b-modal
+    <div
       ref="edit-customer-modal"
       size="xl"
       hide-footer
@@ -151,10 +124,10 @@
         @showSuccessAlert="showAlertUpdate"
         :customerId="customerId"
       ></edit-customer-form>
-    </b-modal>
+    </div>
 
 <!-- Delete Customer Modal -->
-    <b-modal
+    <div
       ref="delete-customer-modal"
       size="md"
       hide-footer
@@ -166,8 +139,8 @@
         @showDeleteAlert="showDeleteSuccessModal"
         :customerId="customerId"
       ></delete-customer-modal>
-    </b-modal>
-    
+    </div>
+
 </template>
 
 <script>

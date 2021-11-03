@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <b-row class="text-center">
-      <b-col>
+
         <div
           class="filter-card p-3"
           :class="{
@@ -15,8 +13,7 @@
             <strong>{{ totalCustomers }}</strong>
           </h4>
         </div>
-      </b-col>
-      <b-col>
+
         <div
           class="filter-card p-3"
           :class="{
@@ -30,9 +27,6 @@
             <strong>{{ activeCustomers }}</strong>
           </h4>
         </div>
-      </b-col>
-    </b-row>
-  </div>
 </template>
 
 <script>
