@@ -23,7 +23,6 @@
       </div>
       <div class="actions">
         <v-btn x-small @click="setToEditing(tag)">Edit</v-btn>
-        <v-btn x-small @click="deleteTag(tag)">Delete</v-btn>
       </div>
     </div>
     <div v-if="!isEditingNewTag">
@@ -54,22 +53,6 @@ import { mapState } from 'vuex';
       })
     },
     methods: {
-      setToEditing(tag) {
-        this.tagEditingId = tag.id;
-        setTimeout(()=> {
-          document.getElementById(`tag-edit-${tag.id}`).focus()
-        }, 1)
-      },
-      updateTagName(tag) {
-        this.$store.dispatch('tags/updateName', {tag})
-        this.tagEditingId = ''
-      },
-      deleteTag(tag) {
-        let confirmed = confirm(`Are you sure you want to delete tag ${tag.name}? It is connected to ${tag.ids.length} .`)
-        if(confirmed){
-          this.$store.dispatch('tags/delete', {tag});
-        }
-      },
       startNewTag(){
         this.isEditingNewTag = true;
         setTimeout(()=> {
