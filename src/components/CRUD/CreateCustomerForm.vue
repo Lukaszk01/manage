@@ -1,16 +1,19 @@
 <template>
-  <form class="mt-3">
+<h1>Create new customer</h1>
+  <form>
         <h4 class="text-secondary">Contact Details</h4>
-        <div class="form-group" id="first-name" label="First Name" label-for="first-name">
+        <label class="form-group" id="first-name" label="First Name" label-for="first-name">
           <input
+            class="form-control"
             id="first-name"
             type="text"
             placeholder="First Name"
             v-model="customer.contact_firstname"
           >
-        </div>
+        </label>
         <div class="form-group" id="last-name" label="Last Name" label-for="last-name">
           <input
+            class="form-control"
             id="last-name"
             type="text"
             placeholder="Last Name"
@@ -18,45 +21,49 @@
           >
         </div>
     <div class="mt-3">
-        <form id="email" label="E-Mail" label-for="email">
+        <div id="email" label="E-Mail" label-for="email">
           <input
+            class="form-control"
             id="email"
             type="email"
             placeholder="example@crm.com"
             v-model="customer.contact_email"
           >
-        </form>
+        </div>
 
     <div class="mt-5">
       <h4 class="text-secondary">Company Details</h4>
     </div>
-        <form
+        <div
           id="company_name"
           label="Company Name"
           label-for="company_name"
         >
           <input
+            class="form-control"
             id="company_name"
             type="text"
             placeholder="XYZ Industries"
             v-model="customer.company_name"
           >
-        </form>
+        </div>
       <col>
     </div>
-        <form
+        <div
           id="acquired_on"
           label="Acquired On"
           label-for="acquired_on"
         >
           <input
+            class="form-control"
             id="acquired_on"
             type="date"
             v-model="customer.acquired_on"
           >
-        </form>
+        </div>
     <div class="mt-2">
       <input
+        class="form-check-input"
         id="customer_status"
         v-model="customer.customer_status"
         name="customer-status"
@@ -67,11 +74,10 @@
        <p>Customer is active</p> 
      
     </div>
-    <div class="mt-4"> </div>
-        <button variant="primary" class="px-5" @click="addNewCustomer"
-          >Add Customer</button
-        >
-        <button variant="warning" @click="triggerClose">Close</button>
+        <div class="btn btn-primary" variant="primary" @click="addNewCustomer"
+          >Add Customer</div>
+       
+        <div class="btn btn-primary" variant="warning" @click="triggerClose">Close</div>
   </form>
 </template>
 

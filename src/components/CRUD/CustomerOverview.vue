@@ -1,32 +1,38 @@
 <template>
-
-        <div
-          class="filter-card p-3"
-          :class="{
-            'bg-active-filter': totalIsActive,
-            'bg-light': !totalIsActive,
-          }"
-          @click="totalCustomersIsActiveFilter"
-        >
-          <h6>Total Customers</h6>
-          <h4>
-            <strong>{{ totalCustomers }}</strong>
-          </h4>
-        </div>
-
-        <div
-          class="filter-card p-3"
+<div class="container">
+  <div
+      class="row align-items-start"
+      :class="{
+        'bg-active-filter': totalIsActive,
+        'bg-light': !totalIsActive,
+      }"
+      @click="totalCustomersIsActiveFilter"
+    >
+    <div class="col">
+      <h6>Total Customers</h6>
+      <h4>
+        <strong>{{ totalCustomers }}</strong>
+      </h4>
+      <div
+          class="totalCustomerColor"
           :class="{
             'bg-active-filter': activeIsActive,
             'bg-light': !activeIsActive,
           }"
           @click="activeCustomersIsActiveFilter"
         >
-          <h6 class="text-secondary">Active Customers</h6>
+    </div>
+
+    </div>
+      <div class="col">
+        <h6 class="text-secondary">Active Customers</h6>
           <h4>
             <strong>{{ activeCustomers }}</strong>
           </h4>
-        </div>
+      </div>  
+  </div>
+</div>
+        
 </template>
 
 <script>
@@ -67,4 +73,5 @@ export default {
   background-color: #e9f1fe;
   color: #074297;
 }
+
 </style>
