@@ -23,34 +23,17 @@
             :fields="fields"
             class="text-center"
           >
-            <!-- <template #cell(contact_name)="data">
-              {{
-                `${data.item.contact_firstname} ${data.item.contact_lastname}`
-              }}
-            </template>
-            <template #cell(customer_status)="data">
-              <b-bookmark-check-fill
-                variant="success"
-                v-if="data.item.customer_status === 'active'"
-              ></bookmark-check-fill>
-              <bookmark-x-fill
-                variant="danger"
-                v-else
-              ></bookmark-x-fill>
-            </template>
-            <template #cell(actions)="data"> -->
-      
-                  <pencil-square
+                  <div
                     class="action-item"
                     variant="primary"
                     @click="getRowData(data.item.id)"
-                  ></pencil-square>
+                  ></div>
                   <trash-fill
                     class="action-item"
                     variant="danger"
                     @click="showDeleteModal(data.item.id)"
                   ></trash-fill>
-            <!-- </template> -->
+        
           </table>
 
     <!-- Modal for adding new customers -->
