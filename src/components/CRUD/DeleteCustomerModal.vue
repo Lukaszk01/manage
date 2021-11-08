@@ -12,11 +12,11 @@
       </p>
     </div>
     <div class="mt-4">
-        <button variant="danger" @click="removeCustomerFromData"
-          >Delete Customer</button
+        <div class="btn btn-primary" variant="danger" @click="removeCustomerFromData"
+          >Delete Customer</div
         >
   
-        <button variant="warning" @click="triggerClose">Close</button>
+        <div class="btn btn-primary" variant="warning" @click="triggerClose">Close</div>
    
     </div>
   </div>

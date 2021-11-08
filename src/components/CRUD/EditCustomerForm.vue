@@ -34,6 +34,7 @@
       <div class="col-6">
         <form id="first-name" label="First Name" label-for="first-name">
           <input
+            class="form-control"
             id="first-name"
             type="text"
             placeholder="First Name"
@@ -44,6 +45,7 @@
       <div class="col-6">
         <form id="last-name" label="Last Name" label-for="last-name">
           <input
+            class="form-control"
             id="last-name"
             type="text"
             placeholder="Last Name"
@@ -56,6 +58,7 @@
       <div class="col-6">
         <form id="email" label="E-Mail" label-for="email">
           <input
+            class="form-control"
             id="email"
             type="email"
             placeholder="example@crm.com"
@@ -75,6 +78,7 @@
           label-for="company_name"
         >
           <input
+            class="form-control"
             id="company_name"
             type="text"
             placeholder="XYZ Industries"
@@ -89,6 +93,7 @@
           label-for="acquired_on"
         >
           <input
+            class="form-control"
             id="acquired_on"
             type="date"
             v-model="customer.acquired_on"
@@ -98,10 +103,11 @@
    
     <div class="mt-2">
       <input
+        class="form-check-input"
         id="customer_status"
         v-model="customer.customer_status"
         name="customer-status"
-      
+        type="checkbox"
         unchecked-value="inactive"
       >
         Customer is active
@@ -109,11 +115,11 @@
     </div>
     <div class="mt-4">
       <div class="col-3">
-        <button variant="primary" class="px-5" @click="updateCustomer"
-          >Update Customer</button
+        <div variant="primary" class="btn btn-primary" @click="updateCustomer"
+          >Update Customer</div
         >
       </div>
-        <button variant="warning" @click="triggerClose">Close</button>
+        <div class="btn btn-primary" variant="warning" @click="triggerClose">Close</div>
     </div>
   </form>
 </template>

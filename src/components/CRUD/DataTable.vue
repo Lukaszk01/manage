@@ -123,7 +123,8 @@
         :customerId="customerId"
       ></delete-customer-modal>
     </div>
-
+<p>Ehlo</p>
+<p>{{fields[0]}}</p>
 </template>
 
 <script>
