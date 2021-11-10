@@ -8,14 +8,15 @@
         @activeCustomerIsActive="setFilterActiveIsActive"
       ></customer-overview>
             <h3>{{ tableHeader }}</h3>
-                <button
+                <div
+                  class="btn btn-primary"
                   variant="primary"
                   id="show-btn"
                   @click="showCreateModal"
                 >
                   <div class="text-white"></div>
                   <span class="h6 text-white">New Customer</span>
-                </button>
+                </div>
           <table
             striped
             hover

@@ -3,15 +3,16 @@
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">Company name</th>
+      <th scope="col">Contact name</th>
+      <th scope="col">Conatact email</th>
+      <th scope="col">Customer status</th>
+      <th scope="col">Actions</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th scope="row">1</th>
+      <th scope="row">{{customers[0]}}</th>
       <td>Mark</td>
       <td>Otto</td>
       <td>@mdo</td>
@@ -126,6 +127,7 @@
 
 <script>
 import axios from "axios";
+import customers from "../db/db.jsdb"
 
 export default {
   name: "CreateCustomerModal",
