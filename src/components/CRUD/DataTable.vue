@@ -125,7 +125,7 @@
       ></delete-customer-modal>
     </div>
 <p>Ehlo</p>
-<p>{{fields[0]}}</p>
+<p>{{fields[0].key}}</p>
 </template>
 
 <script>

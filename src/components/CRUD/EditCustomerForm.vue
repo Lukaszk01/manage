@@ -12,7 +12,7 @@
   </thead>
   <tbody>
     <tr>
-      <th scope="row">{{customers[0]}}</th>
+      <th scope="row">{{ customer }}this one</th>
       <td>Mark</td>
       <td>Otto</td>
       <td>@mdo</td>
@@ -127,7 +127,8 @@
 
 <script>
 import axios from "axios";
-import customers from "../db/db.jsdb"
+import customers from "db";
+
 
 export default {
   name: "CreateCustomerModal",
@@ -136,7 +137,15 @@ export default {
   },
   data() {
     return {
-      customer: {},
+      customers: {
+        id: id,
+        company_name: company_name,
+        contact_firstname: contact_firstname,
+        contact_lastname: contact_lastname,
+        contact_email: contact_email,
+        acquired_on: acquired_on,
+        customer_status: customer_status
+      },
     };
   },
   mounted() {
