@@ -127,7 +127,6 @@
 
 <script>
 import axios from "axios";
-import customers from "db";
 
 
 export default {
@@ -137,15 +136,7 @@ export default {
   },
   data() {
     return {
-      customers: {
-        id: id,
-        company_name: company_name,
-        contact_firstname: contact_firstname,
-        contact_lastname: contact_lastname,
-        contact_email: contact_email,
-        acquired_on: acquired_on,
-        customer_status: customer_status
-      },
+      customer: {},
     };
   },
   mounted() {
