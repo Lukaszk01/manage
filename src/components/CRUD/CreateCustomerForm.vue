@@ -11,7 +11,7 @@
             v-model="customer.contact_firstname"
           >
         </label>
-        <div class="form-group" id="last-name" label="Last Name" label-for="last-name">
+        <label class="form-group" id="last-name" label="Last Name" label-for="last-name">
           <input
             class="form-control"
             id="last-name"
@@ -19,9 +19,9 @@
             placeholder="Last Name"
             v-model="customer.contact_lastname"
           >
-        </div>
+        </label>
     <div class="mt-3">
-        <div id="email" label="E-Mail" label-for="email">
+        <label id="email" label="E-Mail" label-for="email">
           <input
             class="form-control"
             id="email"
@@ -29,12 +29,12 @@
             placeholder="example@crm.com"
             v-model="customer.contact_email"
           >
-        </div>
+        </label>
 
     <div class="mt-5">
       <h4 class="text-secondary">Company Details</h4>
     </div>
-        <div
+        <label
           id="company_name"
           label="Company Name"
           label-for="company_name"
@@ -46,10 +46,10 @@
             placeholder="XYZ Industries"
             v-model="customer.company_name"
           >
-        </div>
+        </label>
       <col>
     </div>
-        <div
+        <label
           id="acquired_on"
           label="Acquired On"
           label-for="acquired_on"
@@ -60,7 +60,7 @@
             type="date"
             v-model="customer.acquired_on"
           >
-        </div>
+        </label>
     <div class="mt-2">
       <input
         class="form-check-input"
@@ -76,7 +76,6 @@
     </div>
         <div class="btn btn-primary" variant="primary" @click="addNewCustomer"
           >Add Customer</div>
-       
         <div class="btn btn-primary" variant="warning" @click="triggerClose">Close</div>
   </form>
 </template>
