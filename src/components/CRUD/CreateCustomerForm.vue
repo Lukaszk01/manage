@@ -1,5 +1,5 @@
 <template>
-<h1>Create new customer</h1>
+<h1 class="mt-3">Create new customer</h1>
   <form>
         <h4 class="text-secondary">Contact Details</h4>
         <label class="form-group" id="first-name" label="First Name" label-for="first-name">
@@ -74,7 +74,7 @@
        <p>Customer is active</p> 
      
     </div>
-        <div class="btn btn-primary" variant="primary" @click="addNewCustomer"
+        <div class="btn btn-primary mt-3" variant="primary" @click="addNewCustomer"
           >Add Customer</div>
         <div class="btn btn-primary" variant="warning" @click="triggerClose">Close</div>
   </form>
