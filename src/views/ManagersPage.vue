@@ -1,19 +1,30 @@
 <template>
-   <button @click="isShow = !isShow">click Me</button>
+<div id="list-rendering">
+  <ol>
+    <li v-bind:todo in todos>
+      {{ todo.text }}
+    </li>
+  </ol>
+</div>
 </template>
 
 
 <script>
 export default {
-  name: "ToggleDiv",
-  data: function () {
+  const ListRendering = {
+  data() {
     return {
-      isShow: true,
-    };
-  },
+      todos: [
+        { text: 'Learn JavaScript' },
+        { text: 'Learn Vue' },
+        { text: 'Build something awesome' }
+      ]
+    }
+  }
+}
 
-  props: {
-    msg: String,
-  },
-};
+
+
+  }
+Vue.createApp(ListRendering).mount('#list-rendering')  
 </script>
