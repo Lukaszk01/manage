@@ -1,88 +1,139 @@
 <template>
-  <div>
-    <div class="flex-table">
-      <div>Name</div>
-      <div></div>
-    </div>
-    <div v-for="tag in tags" :key="tag.id" class="flex-table">
-      <div>
-        <div v-if="tagEditingId == tag.id">
-          <v-text-field v-model="tag.name"
-                        :id="`tag-edit-${tag.id}`"
-                        @blur="updateTagName(tag)"
-                        @keydown.enter="updateTagName(tag)" />
-        </div>
-        <div v-else @click="setToEditing(tag)">
-          {{tag.name}}
-        </div>
-      </div>
-      <div>
-        <router-link :to="{ name: 'tag', params: { id: tag.id }}">
-          {{tag.ids.length}}
-        </router-link>
-      </div>
-      <div class="actions">
-        <v-btn x-small @click="setToEditing(tag)">Edit</v-btn>
-      </div>
-    </div>
-    <div v-if="!isEditingNewTag">
-      <v-btn @click="startNewTag()">Add Tag</v-btn>
-    </div>
-    <div v-else>
-      <v-text-field v-model="newTagName"
-                    :id="`new-tag-name`"
-                    @blur="createTag()"
-                    @keydown.enter="createTag()" />
-    </div>
+  <button v-on:click="show = !show">
+    Toggle
+  </button>
+  <transition name="fade">
+    <p v-if="show">hello</p>
+  </transition>
+  <div id="app">
+    <h1>Table of the employees</h1>
+    <transition name="fade">
+    <table class="table">
+      <thead>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Surname</th>
+      </thead>
+      <tbody is="transition-group" name="rowtrans" @enter="enter" @beforeEnter="beforeEnter" @leave="leave" :css="false">
+        <tr v-for="(row, index) in tablerows" class="ttrow" :key="row.id">
+          <td>
+            <div >{{ row.id }}</div>
+          </td>
+          <td>
+            <div>{{ row.col1 }}</div>
+          </td>
+          <td>
+            <div>{{ row.col2 }}</div>
+          </td>
+          <td>
+            <div>
+              <a href="#" @click="insert_row(index, $event)" class="has-text-primary fa fa-arrow-circle-left"  v-if="insert_row"></a>
+              <a href="#" @click="remove_row(index, $event)" class="has-text-danger fa fa-times-circle" v-if="remove_row"></a>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    </transition>
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex';
-  export default {
-    data() {
-      return {
-        tagEditingId: '',
-        isEditingNewTag: false,
-        newTagName: '',
+export default {
+  name: "App",
+  components: {
+    // HelloWorld
+  },
+  data() {
+    return {
+      show: true,
+      latest_id: 5,
+      tablerows: [
+        { id: 1, col1: "Col1 text", col2: "Col2 Text" },
+        { id: 2, col1: "Col1 text", col2: "Col2 Text" },
+        { id: 3, col1: "Col1 text", col2: "Col2 Text" },
+        { id: 4, col1: "Col1 text", col2: "Col2 Text" }
+      ],
+      ptb: 0,
+      mh: 0
+    };
+  },
+  mounted() {
+    let div = document.querySelector(".ttrow td div");
+    let style = window.getComputedStyle(div);
+    this.ptb = style.getPropertyValue("padding-top");
+    this.mh = style.getPropertyValue("max-height");
+  },
+  methods: {
+    insert_row(index, evt) {
+      this.tablerows.splice(index, 0, {
+        id: this.latest_id++,
+        col1: "Col1 text",
+        col2: "Col2 Text",
+        deleting: false
+      });
+    },
+    remove_row(index, evt) {
+      this.tablerows.splice(index, 1);
+    },
+    beforeEnter(el) {
+      let divs = el.querySelectorAll("div");
+      for (let i = 0; i < divs.length; i++) {
+        divs[i].style.maxHeight = "0px";
+        divs[i].style.paddingTop = "0px";
+        divs[i].style.paddingBottom = "0px";
       }
     },
-    computed: {
-      ...mapState({
-        tags: state => state.tags.tags
-      })
+    enter(el, done) {
+      let divs = el.querySelectorAll("div");
+      Velocity(
+        divs,
+        { maxHeight: this.mh, paddingTop: this.ptb, paddingBottom: this.ptb },
+        { duration: 300, complete: done }
+      );
     },
-    methods: {
-      startNewTag(){
-        this.isEditingNewTag = true;
-        setTimeout(()=> {
-          document.getElementById(`new-tag-name`).focus()
-        }, 1)
-      },
-      createTag(){
-        if(this.newTagName.length > 0) {
-          this.$store.dispatch('tags/create', {name: this.newTagName})
-          this.newTagName = ''
-        }
-        this.isEditingNewTag = false
-      }
+    leave(el, done) {
+      // console.log('leave');
+      let divs = el.querySelectorAll("div");
+      Velocity(
+        divs,
+        { maxHeight: "0px", paddingTop: "0px", paddingBottom: "0px" },
+        { duration: 300, complete: done }
+      );
     }
   }
+};
 </script>
 
 <style>
-  .flex-table {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 33%);
-    padding: 10px;
-    border-bottom: 1px black solid;
-    &:nth-of-type(2n) {
-      background-color: #dedede;
-    }
-    .actions {
-      * {
-        margin-right: 10px
-      }
-    }
-  }
+#app {
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
+  margin: 1em;
+}
+
+h1 {
+  font-size: x-large;
+}
+
+.ttrow td {
+  padding: 0;
+}
+
+.ttrow td div {
+  box-sizing: border-box;
+  max-height: 40px;
+  padding: 0.5em 0.75em;
+  overflow: hidden;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+
 </style>
