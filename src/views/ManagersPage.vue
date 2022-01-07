@@ -1,5 +1,5 @@
 <template>
-  <div id="shopping-list">
+  <div id="staff-list">
     <div class="header">
       <h1>{{ header || 'Welcome' }}</h1>
       <button v-if="editing" @click="doEdit(false)" class="btn btn-cancel">Cancel</button>
@@ -9,13 +9,7 @@
     <div v-if="editing" class="add-item-form">
       <input 
         @keyup.enter="saveDetail" 
-        type="text" v-model="newFirstName" placeholder = "First Name">
-      <input 
-        @keyup.enter="saveDetail" 
-        type="text" v-model="newDetail" placeholder = "Last Name">
-      <input 
-        @keyup.enter="saveDetail" 
-        type="text" v-model="newDetail" placeholder = "Email">
+        type="text" v-model="newDetail" placeholder = "Add an Staff">
       <label>
         <input type="checkbox" v-model="newDetailHighPriority">
         High Priority
@@ -23,7 +17,7 @@
       <button 
         @click="saveDetail" 
         class="btn btn-primary">
-        Save Detail
+        Save Staff
       </button>
     </div>
     <p v-if="items.length === 0">Nice job! You've bought all your items!</p>
@@ -33,52 +27,13 @@
         @click="togglePurchased(item)"
         :key="item.id"
         class="static-class"
-        :class="{strikeout: item.purchased, priority: item.highPriority}"
       >
-        {{item.label}}
+        {{item.name}}
+        {{item.surname}}
+        {{item.email}}
       </li>
-      <li 
-      v-for="item in reversedDetails" 
-      @click="togglePurchased(item)"
-      :key="item.id"
-      class="static-class"
-      :class="{strikeout: item.purchased, priority: item.highPriority}"
-    >
-      {{item.label}}
-    </li>
-    
     </ul>
   </div>
-
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td colspan="2">Larry the Bird</td>
-        <td>@twitter</td>
-      </tr>
-    </tbody>
-  </table>
 </template>
 
 <script>
@@ -88,11 +43,14 @@ export default {
           header: 'Shopping List App',
           editing:false,
           newDetail: '',
+          name: '',
+          surname: '',
+          email: '',
           newDetailHighPriority: false,
           items:[
-            {id: 1, label:'10 party hats', purchased: true, highPriority: false},
-            {id: 2, label:'2 board games', purchased: true, highPriority: false},
-            {id: 3, label:'20 cups', purchased: false, highPriority: true},
+            {id: 1, name:'John', surname: 'Smith', email: 'john@examle.com'},
+            {id: 2, name:'Jim', surname: 'Beam', email: 'jim@examle.com'},
+            {id: 3, name:'Tony', surname: 'Malony', email: 'tony@examle.com'},
           ]
         }
       },
@@ -105,8 +63,8 @@ export default {
         saveDetail(){
           this.items.push({
             id:this.items.length + 1, 
-            label: this.newDetail,
-            highPriority: this.newDetailHighPriority
+            name: this.newDetail,
+            email: this.newDetailHighPriority
           })
           this.newDetail = ""
           this.newDetailHighPriority = false
@@ -117,7 +75,7 @@ export default {
           this.newDetailHighPriority = false
         },
         togglePurchased(item){
-          item.purchased = !item.purchased
+          item.surname = !item.surname
         }
       }
 }
@@ -144,7 +102,7 @@ export default {
     padding-right: 10px;
   }
   
-  #shopping-list {
+  #staff-list {
     background: #fff;
     padding: 2rem;
     margin: 1rem;
@@ -195,8 +153,8 @@ export default {
     margin: 0 0.5rem 0;
   }
   
-  #shopping-list > input,
-  #shopping-list > select {
+  #staff-list > input,
+  #staff-list > select {
     width: 100%;
     border-radius: 3px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
