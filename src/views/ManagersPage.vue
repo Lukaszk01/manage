@@ -2,35 +2,35 @@
   <div id="staff-list">
     <div class="header">
       <h1>{{ header || 'Welcome' }}</h1>
-      <button v-if="editing" @click="doEdit(false)" class="btn btn-cancel">Cancel</button>
-      <button v-else @click="doEdit(true)" class="btn btn-primry">Add Staff</button>
+      <button  class="btn btn-cancel">Cancel</button>
+      <button  class="btn btn-primry">Add Staff</button>
     </div>
     
-    <div v-if="editing" class="add-item-form">
+    <div class="add-item-form">
       <input 
         @keyup.enter="saveDetail" 
-        type="text" v-model="newDetail" placeholder = "Add an Staff">
-      <label>
-        <input type="checkbox" v-model="newDetailHighPriority">
-        High Priority
-      </label>
+        type="text" v-model="newName" placeholder = "Add an Name">
+      <input 
+        @keyup.enter="saveDetail" 
+        type="text" v-model="newSurname" placeholder = "Add an Surname">
+      <input 
+        @keyup.enter="saveDetail" 
+        type="text" v-model="newEmail" placeholder = "Add an Email">
       <button 
         @click="saveDetail" 
         class="btn btn-primary">
         Save Staff
       </button>
     </div>
-    <p v-if="items.length === 0">Nice job! You've bought all your items!</p>
     <ul>
       <li 
         v-for="item in reversedDetails" 
-        @click="togglePurchased(item)"
         :key="item.id"
         class="static-class"
       >
-        {{item.name}}
-        {{item.surname}}
-        {{item.email}}
+        {{item.newName}}
+        {{item.newSurname}}
+        {{item.newEmail}}
       </li>
     </ul>
   </div>
@@ -40,17 +40,14 @@
 export default {
   data() {
         return {
-          header: 'Shopping List App',
-          editing:false,
-          newDetail: '',
-          name: '',
-          surname: '',
-          email: '',
-          newDetailHighPriority: false,
+          header: 'Staff List',
+          newName: '',
+          newSurname: '',
+          newEmail: '',
           items:[
-            {id: 1, name:'John', surname: 'Smith', email: 'john@examle.com'},
-            {id: 2, name:'Jim', surname: 'Beam', email: 'jim@examle.com'},
-            {id: 3, name:'Tony', surname: 'Malony', email: 'tony@examle.com'},
+            {id: 1, newName:'John', newSurname: 'Smith', newEmail: 'john@examle.com'},
+            {id: 2, newName:'Jim', newSurname: 'Beam', newEmail: 'jim@examle.com'},
+            {id: 3, newName:'Tony', newSurname: 'Malony', newEmail: 'tony@examle.com'},
           ]
         }
       },
@@ -63,19 +60,14 @@ export default {
         saveDetail(){
           this.items.push({
             id:this.items.length + 1, 
-            name: this.newDetail,
-            email: this.newDetailHighPriority
+            newName: this.newName,
+            newSurname: this.newSurname,
+            newEmail: this.newEmail
           })
-          this.newDetail = ""
-          this.newDetailHighPriority = false
-        },
-        doEdit(editing){
-          this.editing = editing
-          this.newDetail = ""
-          this.newDetailHighPriority = false
+          this.newName = ""
         },
         togglePurchased(item){
-          item.surname = !item.surname
+          item.newSurname = !item.newSurname
         }
       }
 }
