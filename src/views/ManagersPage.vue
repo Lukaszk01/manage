@@ -21,6 +21,7 @@
         class="btn btn-primary">
         Save Staff
       </button>
+
     </div>
     <ul>
       <li 
@@ -31,6 +32,11 @@
         {{item.newName}}
         {{item.newSurname}}
         {{item.newEmail}}
+        <button 
+          @click="deleteUser" 
+          class="btn btn-danger">
+          Delete Staff
+      </button>
       </li>
     </ul>
   </div>
@@ -66,8 +72,13 @@ export default {
           })
           this.newName = ""
         },
-        togglePurchased(item){
-          item.newSurname = !item.newSurname
+        deleteUser(){
+          this.items.pop({
+            id:this.items.length - 1, 
+            newName: this.newName,
+            newSurname: this.newSurname,
+            newEmail: this.newEmail
+          })
         }
       }
 }
