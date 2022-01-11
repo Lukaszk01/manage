@@ -3,18 +3,24 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "serve": "export NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service serve",
+    "build": "export NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service build",
+    "lint": "export NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service lint"
   },
   "dependencies": {
     "animate.css": "^4.1.1",
+    "axios": "^0.24.0",
+    "body-parser": "^1.19.0",
     "bootstrap": "^5.1.3",
     "core-js": "^3.6.5",
+    "cors": "^2.8.5",
+    "db": "^3.3.1",
+    "express": "^4.17.1",
     "firebase": "^9.1.0",
     "mysql": "^2.18.1",
-    "mysql2": "^2.3.2",
+    "mysql2": "^2.3.3",
     "node": "^17.0.1",
+    "sequelize": "^6.12.0-alpha.1",
     "vue": "^3.0.0",
     "vue-page-transition": "^0.2.2",
     "vue-router": "^4.0.11",
@@ -48,5 +54,25 @@
     "> 1%",
     "last 2 versions",
     "not dead"
-  ]
+  ],
+  "description": "## Project setup ``` yarn install ```",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lukaszk01/manage.git"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "sequelize",
+    "mysql",
+    "rest",
+    "api"
+  ],
+  "author": "lukasz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lukaszk01/manage/issues"
+  },
+  "homepage": "https://github.com/Lukaszk01/manage#readme"
 }

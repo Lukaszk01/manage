@@ -16,6 +16,9 @@
 
 
 <style>
+body {
+  background-color: eaeaea;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
