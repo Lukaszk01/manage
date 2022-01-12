@@ -40,22 +40,27 @@
       </button>
       </li>
     </ul>
-  </div>
-     <div id='create-user'>
-   {{newName}}
- </div>
+    <br>
+    <br>
+        <li v-for="(item, index) in items" :item="item" :key="index">
+      {{ item }}
+    </li>
+
+
+</div>  
 </template>
 
 <script>
 
 import CreateUser from '@/components/CRUD/CreateUser.vue'
 export default {
+    props: {
+        newName: String
+    },
   components: {
     CreateUser,
   },
-  props: ['newName'],
   data() {
-      
         return {
           header: 'Staff List',
         //   newName: '',
@@ -74,15 +79,15 @@ export default {
         }
       },
       methods:{
-        // saveDetail(){
-        //   this.items.push({
-        //     id:this.items.length + 1, 
-        //     newName: this.newName,
-        //     newSurname: this.newSurname,
-        //     newEmail: this.newEmail
-        //   })
-        //   this.newName = ""
-        // },
+        saveDetail(){
+          this.items.push({
+            id:this.items.length + 1, 
+            newName: this.newName,
+            newSurname: this.newSurname,
+            newEmail: this.newEmail
+          })
+          this.newName
+        },
         deleteUser(){
           this.items.pop({
             id:this.items.length - 1, 

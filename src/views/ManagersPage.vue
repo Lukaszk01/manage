@@ -1,19 +1,16 @@
 <template>
-
-    <CreateUser />
-    <ListOfEmployees />
-  </template>
+<div class="container">
+  <CreateUser />
+</div>
+  
+</template>
 
 <script>
+import { CreateUser } from '@/components/CRUD/CreateUser.vue'
 
-
-import CreateUser from '@/components/CRUD/CreateUser.vue'
-import ListOfEmployees from '@/components/CRUD/ListOfEmployees.vue'
-export default {
-  components: {
-    CreateUser,
-    ListOfEmployees,
+export default ({
+  component: {
+    CreateUser
   }
-}
-
+})
 </script>

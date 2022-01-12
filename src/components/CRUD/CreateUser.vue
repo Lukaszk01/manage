@@ -1,11 +1,11 @@
 <template>
   <div id="staff-list">
+
     <div class="header">
       <button  class="btn btn-cancel">Cancel</button>
       <button  class="btn btn-primry">Add Staff</button>
     </div>
-    <ListOfEmployees />
-    <list-of-employees :newName="newName" />
+    
     <div class="add-item-form">
       <input 
         @keyup.enter="saveDetail" 
@@ -23,44 +23,67 @@
       </button>
 
     </div>
-  </div>
-
+    <ul>
+      <li 
+        v-for="item in reversedDetails" 
+        :key="item.id"
+        class="static-class"
+      >
+        {{item.newName}}
+        {{item.newSurname}}
+        {{item.newEmail}}
+        <button 
+          @click="deleteUser" 
+          class="btn btn-danger">
+          Delete Staff
+      </button>
+      </li>
+    </ul>
+</div>  
 </template>
 
 <script>
-import ListOfEmployees from "./ListOfEmployees.vue"
+
 
 export default {
-  components: {
-    ListOfEmployees,
-  },
-    data() {
+  data() {
         return {
-            header: "Staff List",
-            newName: "",
-            newSurname: "",
-            newEmail: "",
-            items: [
-                { id: 1, newName: "John", newSurname: "Smith", newEmail: "john@examle.com" },
-                { id: 2, newName: "Jim", newSurname: "Beam", newEmail: "jim@examle.com" },
-                { id: 3, newName: "Tony", newSurname: "Malony", newEmail: "tony@examle.com" },
-            ],
-        };
-    },
-    methods: {
-        saveDetail() {
-            this.items.push({
-                id: this.items.length + 1,
-                newName: this.newName,
-                newSurname: this.newSurname,
-                newEmail: this.newEmail
-            });
-            this.newName = "";
+          header: 'Staff List',
+          newName: '',
+          newSurname: '',
+          newEmail: '',
+          items:[
+            {id: 1, newName:'John', newSurname: 'Smith', newEmail: 'john@examle.com'},
+            {id: 2, newName:'Jim', newSurname: 'Beam', newEmail: 'jim@examle.com'},
+            {id: 3, newName:'Tony', newSurname: 'Malony', newEmail: 'tony@examle.com'},
+          ]
         }
-    }
+      },
+      computed:{
+        reversedDetails(){
+          return [...this.items].reverse()
+        }
+      },
+      methods:{
+        saveDetail(){
+          this.items.push({
+            id:this.items.length + 1, 
+            newName: this.newName,
+            newSurname: this.newSurname,
+            newEmail: this.newEmail
+          })
+          this.newName
+        },
+        deleteUser(){
+          this.items.pop({
+            id:this.items.length - 1, 
+            newName: this.newName,
+            newSurname: this.newSurname,
+            newEmail: this.newEmail
+          })
+        }
+      }
 }
-
-
 </script>
 
 
