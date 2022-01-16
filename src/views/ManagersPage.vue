@@ -2,15 +2,19 @@
 <div class="container">
   <CreateUser />
 </div>
-  
+
+
 </template>
 
 <script>
-import { CreateUser } from '@/components/CRUD/CreateUser.vue'
+import CreateUser from '../components/CRUD/CreateUser.vue'
 
 export default ({
-  component: {
+  components: {
     CreateUser
+  },
+  setup() {
+    
   }
 })
 </script>
